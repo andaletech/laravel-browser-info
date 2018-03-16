@@ -55,25 +55,24 @@ class BrowserInfo
     {
         $languages = new Languages();
         $acceptedLangs = $this->request->header('accept-language');
-        if(empty($acceptedLangs))
+        if(!empty($acceptedLangs))
         {
-            return $languages;
+            $acceptedLangs = explode(',', $acceptedLangs);
+            foreach ($acceptedLangs as $aLang)
+            {
+                #check for q-value and create associative array. No q-value means 1 by rule
+                if(preg_match("/(.*);q=([0-1]{0,1}.\d{0,4})/i", $aLang, $matches))
+                {
+                    // $languages[$matches[1]] = (float)$matches[2];
+                    $languages->push(new AcceptedLanguage($matches[1], (float)$matches[2]));
+                }
+                else
+                {
+                    // $languages[$aLang] = 1.0;
+                    $languages->push(new AcceptedLanguage($aLang, 1.0));
+                }
+            }
         }
-        $acceptedLangs = explode(',', $acceptedLangs);
-        foreach ($acceptedLangs as $aLang)
-        {
-            #check for q-value and create associative array. No q-value means 1 by rule
-            if(preg_match("/(.*);q=([0-1]{0,1}.\d{0,4})/i", $aLang, $matches))
-            {
-                // $languages[$matches[1]] = (float)$matches[2];
-                $languages->push(new AcceptedLanguage($matches[1], (float)$matches[2]));
-            }
-            else
-            {
-                // $languages[$aLang] = 1.0;
-                $languages->push(new AcceptedLanguage($aLang, 1.0));
-            }
-         }
         $this->languages = $languages;
     }
 
