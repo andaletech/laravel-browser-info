@@ -57,7 +57,7 @@ class BrowserInfo
         $acceptedLangs = $this->request->header('accept-language');
         if(empty($acceptedLangs))
         {
-            return [];
+            return $languages;
         }
         $acceptedLangs = explode(',', $acceptedLangs);
         foreach ($acceptedLangs as $aLang)
