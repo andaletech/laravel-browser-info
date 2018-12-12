@@ -3,7 +3,6 @@
 namespace Andaletech\BrowserInfo;
 
 use Illuminate\Support\Collection;
-use Log;
 
 /**
  * Encapsulate the collection of languages that the browser supports.
@@ -44,16 +43,9 @@ class Languages extends Collection
         $intersect = $this->filter(function($aLanguage) use($appLanguages){
             return $appLanguages->supports($aLanguage->getLanguage());
         });
-        Log::info('Intersect: ', ['i' => $intersect->toArray()]);
-        // if(!$strict)
-        // {
-        //     // $languages->unique('language')->pluck('language')->all()
-        //     $browserLangs = $browserLangs->unique('language');
-        // }
         $sorted = $intersect->sortByDesc(function($aLanguage){
             return floatval($aLanguage['q']);
         });
-        Log::info('sorted: ', ['i' => $sorted->toArray()]);
         return $sorted->first();
     }
     /**
