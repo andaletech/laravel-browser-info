@@ -170,6 +170,7 @@ class AcceptedLanguage implements Arrayable, \ArrayAccess
   {
     $details = [];
     $split = explode('-', $lang);
+
     $details['language'] = $split[0];
     $details['country'] = Arr::has($split, 1) ? $split[1] : '';
     $details['variant'] = Arr::has($split, 2) ? $split[2] : '';
