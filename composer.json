@@ -1,44 +1,44 @@
 {
-    "name": "andaletech/laravel-browser-info",
-    "description": "A Laravel 5 package that provide an easy way to get useful browser related information (like supported languages, browser name, etc.) from a request.",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Kolado Sidibe",
-            "email": "kolado.sidibe@andaletech.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=7.0.0",
-        "illuminate/support": ">=5.5"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "5.7",
-        "orchestra/testbench": "~3.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Andaletech\\BrowserInfo\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
-    "config": {
-      "cache-files-ttl":0
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Andaletech\\BrowserInfo\\BrowserInfoServiceProvider"
-            ],
-            "aliases": {
-                "BrowserInfo": "Andaletech\\BrowserInfo\\BrowserInfoFacade"
-            }
-        }
+  "name": "andaletech/laravel-browser-info",
+  "description": "A Laravel 5 package that provide an easy way to get useful browser related information (like supported languages, browser name, etc.) from a request.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kolado Sidibe",
+      "email": "kolado.sidibe@andaletech.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.0.0",
+    "illuminate/support": "^6.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.7",
+    "orchestra/testbench": "~3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Andaletech\\BrowserInfo\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "cache-files-ttl":0
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Andaletech\\BrowserInfo\\BrowserInfoServiceProvider"
+      ],
+      "aliases": {
+        "BrowserInfo": "Andaletech\\BrowserInfo\\BrowserInfoFacade"
+      }
+    }
+  }
 }
