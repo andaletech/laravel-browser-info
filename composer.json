@@ -6,12 +6,12 @@
     "authors": [
         {
             "name": "Kolado Sidibe",
-            "email": "kolado.sidibe@andaletech.com"
+            "email": "support@andaletech.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.0.0",
+        "php": ">=8.0.0",
         "illuminate/support": ">=8.0"
     },
     "require-dev": {
@@ -41,5 +41,5 @@
             }
         }
     }
-  
+
 }
